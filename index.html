@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Poesías y escritos.">
   <meta name="theme-color" content="#0b0c0d">
-  <title> — Poesías</title>
+  <title>Poemas — Poesías</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -544,6 +544,15 @@
       line-height: .9;
     }
 
+    .modal-author {
+      margin: -25px 0 35px;
+      color: var(--accent);
+      font-family: var(--sans);
+      font-size: .75rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
     .full-poem {
       white-space: pre-line;
       color: #d3d0c8;
@@ -724,11 +733,9 @@
                 <span>Poema 01</span>
                 <span>2026</span>
               </div>
-              <h3>Después de la lluvia</h3>
-              <div class="poem-excerpt">Después de la lluvia,
-la ciudad parece recordar
-todo aquello
-que intentó olvidar.</div>
+              <h3>No te detengas</h3>
+              <div class="poem-excerpt">No dejes que termine el día sin haber crecido un poco,
+sin haber sido feliz, sin haber aumentado tus sueños.</div>
             </div>
             <button class="read-link" data-poem="poem1">
               Leer poema <span>→</span>
@@ -776,7 +783,7 @@ no sabemos ser.</div>
                 <span>2025</span>
               </div>
               <h3>El silencio</h3>
-              <div class="poem-excerpt">El silencio não diz.
+              <div class="poem-excerpt">El silencio no dice.
 Permanece.
 Y a veces
 eso basta.</div>
@@ -828,7 +835,7 @@ eso basta.</div>
         <div class="archive reveal">
           <a class="archive-row" href="#" data-poem="poem1">
             <span class="archive-year">2026</span>
-            <span class="archive-title">Después de la lluvia</span>
+            <span class="archive-title">No te detengas</span>
             <span class="archive-arrow">→</span>
           </a>
 
@@ -899,6 +906,7 @@ eso basta.</div>
       </div>
 
       <h3 id="modalTitle"></h3>
+      <div class="modal-author" id="modalAuthor"></div>
       <div class="full-poem" id="modalPoem"></div>
     </div>
   </div>
@@ -907,6 +915,7 @@ eso basta.</div>
     const poems = {
       poem1: {
         title: "No te detengas",
+        author: "Walt Whitman",
         text: `No dejes que termine el día sin haber crecido un poco,
 sin haber sido feliz, sin haber aumentado tus sueños.
 No te dejes vencer por el desaliento.
@@ -924,7 +933,7 @@ nos convierte en protagonistas
 de nuestra propia historia.
 Aunque el viento sople en contra,
 la poderosa obra continúa:
-Tu puedes aportar una estrofa.
+Tú puedes aportar una estrofa.
 No dejes nunca de soñar,
 porque en sueños es libre el hombre.
 No caigas en el peor de los errores:
@@ -952,10 +961,11 @@ La sociedad de hoy somos nosotros:
 Los «poetas vivos».
 No permitas que la vida te pase a ti sin que la vivas.`
 
-Walt Witman},
+Walt Whitman},
 
       poem2: {
         title: "La invitación",
+        author: "Oriah Mountain Dreamer",
         text: `No me interesa saber cómo te ganas la vida. Quiero saber lo que ansías, y si te atreves a soñar con lo que tu corazón anhela.
 
 No me interesa tu edad. Quiero saber si te arriesgarías a parecer un tonto por amor, por tus sueños, por la aventura de estar vivo.
@@ -983,6 +993,7 @@ Oriah Mountain Dreamer`
 
       poem3: {
         title: "Entre dos mañanas",
+        author: "",
         text: `Hay una distancia
 entre lo que fuimos
 y aquello que todavía
@@ -1003,7 +1014,8 @@ el intervalo.`
 
       poem4: {
         title: "El silencio",
-        text: `El silencio não diz.
+        author: "",
+        text: `El silencio no dice.
 
 Permanece.
 
@@ -1028,6 +1040,7 @@ quedarse.`
     const modal = document.getElementById("poemModal");
     const closeModal = document.getElementById("closeModal");
     const modalTitle = document.getElementById("modalTitle");
+    const modalAuthor = document.getElementById("modalAuthor");
     const modalPoem = document.getElementById("modalPoem");
 
     window.addEventListener("scroll", () => {
@@ -1051,6 +1064,8 @@ quedarse.`
       if (!poem) return;
 
       modalTitle.textContent = poem.title;
+      modalAuthor.textContent = poem.author || "";
+      modalAuthor.style.display = poem.author ? "block" : "none";
       modalPoem.textContent = poem.text;
       modal.classList.add("open");
       modal.setAttribute("aria-hidden", "false");

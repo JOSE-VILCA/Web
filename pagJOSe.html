@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Poesías y aforismos — palabras para aquello que permanece.">
+  <title>Palabras — Poesías y Aforismos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0c0d;
+      --bg2:#111315;
+      --text:#e8e4dc;
+      --muted:#96958f;
+      --line:#292b2d;
+      --accent:#b7a47a;
+      --serif:"Cormorant Garamond", Georgia, serif;
+      --sans:"Inter", Arial, sans-serif;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 80% 10%,rgba(183,164,122,.07),transparent 28rem),
+        var(--bg);
+      color:var(--text);
+      font-family:var(--sans);
+      line-height:1.7;
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    ::selection{background:var(--accent);color:var(--bg)}
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+
+    /* NAV */
+    .nav{
+      position:fixed;
+      inset:0 0 auto;
+      z-index:50;
+      padding:20px 0;
+      transition:.3s;
+    }
+    .nav.scrolled{
+      padding:12px 0;
+      background:rgba(11,12,13,.82);
+      border-bottom:1px solid rgba(255,255,255,.07);
+      backdrop-filter:blur(14px);
+    }
+    .nav-inner{display:flex;justify-content:space-between;align-items:center}
+    .brand{font:600 1.45rem var(--serif);letter-spacing:.06em}
+    .links{display:flex;gap:28px}
+    .links a{
+      color:var(--muted);
+      font-size:.74rem;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .links a:hover{color:var(--text)}
+    .menu{display:none;background:none;border:0;color:var(--text);font-size:1.4rem}
+
+    /* HERO */
+    .hero{
+      min-height:100svh;
+      display:flex;
+      align-items:center;
+      padding:130px 0 90px;
+    }
+    .eyebrow{
+      color:var(--accent);
+      font-size:.7rem;
+      letter-spacing:.25em;
+      text-transform:uppercase;
+      margin-bottom:25px;
+    }
+    h1{
+      margin:0;
+      font:400 clamp(4.5rem,13vw,10rem)/.8 var(--serif);
+      letter-spacing:-.05em;
+    }
+    .hero p{
+      max-width:650px;
+      margin:40px 0 0;
+      color:#b9b7b0;
+      font:400 clamp(1.5rem,3vw,2.2rem)/1.2 var(--serif);
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:38px}
+    .button{
+      display:inline-flex;
+      min-height:46px;
+      align-items:center;
+      padding:0 20px;
+      border:1px solid var(--line);
+      font-size:.72rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      transition:.25s;
+    }
+    .button:hover{border-color:var(--accent);transform:translateY(-2px)}
+    .button.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+    .button.primary:hover{background:var(--accent);border-color:var(--accent)}
+
+    section{padding:115px 0;border-top:1px solid var(--line)}
+    .heading{
+      display:grid;
+      grid-template-columns:170px 1fr;
+      gap:35px;
+      margin-bottom:60px;
+    }
+    .number{
+      color:var(--accent);
+      font-size:.68rem;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+    }
+    h2{
+      margin:0;
+      font:400 clamp(2.8rem,6vw,5rem)/.92 var(--serif);
+      letter-spacing:-.03em;
+    }
+
+    /* POEM CARDS */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1px;
+      background:var(--line);
+      border:1px solid var(--line);
+    }
+    .card{
+      min-height:350px;
+      padding:38px;
+      background:var(--bg);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      transition:.3s;
+    }
+    .card:hover{background:var(--bg2)}
+    .meta{
+      display:flex;
+      justify-content:space-between;
+      color:#686963;
+      font-size:.68rem;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .card h3{
+      margin:42px 0 15px;
+      font:400 clamp(2.3rem,4vw,3.5rem)/.95 var(--serif);
+    }
+    .excerpt{
+      color:#aaa9a3;
+      font:400 1.3rem/1.5 var(--serif);
+      white-space:pre-line;
+    }
+    .read{
+      width:max-content;
+      margin-top:28px;
+      padding:0;
+      border:0;
+      background:none;
+      color:var(--accent);
+      cursor:pointer;
+      font-size:.7rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    /* AFORISMOS */
+    .aphorisms{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      background:var(--line);
+      border:1px solid var(--line);
+    }
+    .aph{
+      min-height:270px;
+      padding:35px;
+      background:var(--bg);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .aph p{
+      margin:0;
+      font:400 clamp(1.6rem,2.5vw,2.25rem)/1.15 var(--serif);
+    }
+    .aph small{
+      color:var(--accent);
+      font-size:.67rem;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+
+    /* SOBRE */
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:80px;
+    }
+    .about-main{
+      font:400 clamp(1.5rem,2.6vw,2.1rem)/1.4 var(--serif);
+    }
+    .aside{color:var(--muted)}
+    blockquote{
+      margin:30px 0 0;
+      padding:30px 0 0 25px;
+      border-left:1px solid var(--accent);
+      color:#b8b6ae;
+      font:400 1.4rem/1.45 var(--serif);
+    }
+
+    /* CONTATO */
+    .contact{min-height:60vh;display:flex;align-items:center}
+    .contact h2{font-size:clamp(3.5rem,8vw,7rem)}
+    .contact p{max-width:600px;color:var(--muted);margin:30px 0}
+    .contact-links{display:flex;gap:25px;flex-wrap:wrap}
+    .contact-links a{color:var(--accent);border-bottom:1px solid var(--accent)}
+
+    footer{padding:30px 0;border-top:1px solid var(--line);color:#666762;font-size:.7rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px}
+
+    /* MODAL */
+    .modal{
+      position:fixed;
+      inset:0;
+      z-index:100;
+      display:none;
+      overflow:auto;
+      padding:30px 20px;
+      background:rgba(7,8,9,.93);
+      backdrop-filter:blur(16px);
+    }
+    .modal.open{display:block}
+    .modal-inner{width:min(760px,100%);margin:7vh auto 12vh}
+    .modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:60px}
+    .modal-label{color:var(--accent);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase}
+    .close{
+      width:42px;height:42px;
+      border:1px solid var(--line);
+      background:none;color:var(--text);
+      cursor:pointer;font-size:1.4rem;
+    }
+    .close:hover{border-color:var(--accent)}
+    .modal h3{margin:0 0 10px;font:400 clamp(3rem,7vw,5.5rem)/.9 var(--serif)}
+    .author{color:var(--accent);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:40px}
+    .full{white-space:pre-line;color:#d3d0c8;font:400 clamp(1.35rem,2.4vw,1.7rem)/1.85 var(--serif)}
+
+    @media(max-width:720px){
+      .container{width:min(calc(100% - 28px),var(--max))}
+      .links{
+        position:absolute;top:58px;left:14px;right:14px;
+        display:none;flex-direction:column;gap:0;
+        padding:15px;background:rgba(17,19,21,.97);border:1px solid var(--line)
+      }
+      .links.open{display:flex}
+      .links a{padding:12px 3px}
+      .menu{display:block}
+      .heading{display:block;margin-bottom:40px}
+      .number{margin-bottom:18px}
+      .grid,.aphorisms,.about{grid-template-columns:1fr}
+      .card{min-height:320px;padding:28px}
+      .aph{min-height:220px}
+      .about{gap:45px}
+      .footer-inner{flex-direction:column}
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#inicio">PALAVRAS</a>
+    <button class="menu" id="menu" aria-label="Abrir menu">☰</button>
+    <nav class="links" id="links">
+      <a href="#poesias">Poesías</a>
+      <a href="#aforismos">Aforismos</a>
+      <a href="#sobre">Sobre mí</a>
+      <a href="#contato">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="eyebrow">Poesía · pensamiento · silencio</div>
+    <h1>Palavras.</h1>
+    <p>
+      Poemas e aforismos para aquilo que sentimos,
+      pensamos e nem sempre conseguimos dizer.
+    </p>
+    <div class="hero-actions">
+      <a class="button primary" href="#poesias">Leer poesías</a>
+      <a class="button" href="#aforismos">Aforismos</a>
+    </div>
+  </div>
+</section>
+
+<section id="poesias">
+  <div class="container">
+    <div class="heading">
+      <div class="number">01 / Poesías</div>
+      <h2>Algunas palabras<br>que quedaron.</h2>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <div>
+          <div class="meta"><span>Poema 01</span><span>2026</span></div>
+          <h3>Entre dos mañanas</h3>
+          <div class="excerpt">Hay una distancia
+entre lo que fuimos
+y aquello que todavía
+no sabemos ser.</div>
+        </div>
+        <button class="read" data-poem="p1">Leer poema →</button>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="meta"><span>Poema 02</span><span>2026</span></div>
+          <h3>El silencio</h3>
+          <div class="excerpt">El silencio não diz.
+Permanece.
+
+E às vezes,
+isso basta.</div>
+        </div>
+        <button class="read" data-poem="p2">Leer poema →</button>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="meta"><span>Poema 03</span><span>2025</span></div>
+          <h3>Pequeña despedida</h3>
+          <div class="excerpt">No hubo adiós.
+Solo la tarde
+cerrando despacio
+las puertas de la casa.</div>
+        </div>
+        <button class="read" data-poem="p3">Leer poema →</button>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="meta"><span>Poema 04</span><span>2025</span></div>
+          <h3>Después</h3>
+          <div class="excerpt">Algunas cosas
+solo comienzan
+cuando pensamos
+que terminaron.</div>
+        </div>
+        <button class="read" data-poem="p4">Leer poema →</button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="aforismos">
+  <div class="container">
+    <div class="heading">
+      <div class="number">02 / Aforismos</div>
+      <h2>Pequeñas frases<br>para grandes silencios.</h2>
+    </div>
+
+    <div class="aphorisms">
+      <article class="aph">
+        <p>“A veces, madurar es simplemente aprender a no responder.”</p>
+        <small>Aforismo · 01</small>
+      </article>
+      <article class="aph">
+        <p>“Hay preguntas que no buscan respuestas, sino compañía.”</p>
+        <small>Aforismo · 02</small>
+      </article>
+      <article class="aph">
+        <p>“El tiempo no lo cura todo; nos enseña a tocar la herida sin miedo.”</p>
+        <small>Aforismo · 03</small>
+      </article>
+      <article class="aph">
+        <p>“Quien aprende a escuchar el silencio descubre que nunca estuvo vacío.”</p>
+        <small>Aforismo · 04</small>
+      </article>
+      <article class="aph">
+        <p>“No toda ausencia es distancia.”</p>
+        <small>Aforismo · 05</small>
+      </article>
+      <article class="aph">
+        <p>“Escribir es dejar una puerta abierta a aquello que ya pasó.”</p>
+        <small>Aforismo · 06</small>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="container">
+    <div class="heading">
+      <div class="number">03 / Sobre mí</div>
+      <h2>Escribir es<br>prestar atención.</h2>
+    </div>
+
+    <div class="about">
+      <div class="about-main">
+        Sou <strong>[SEU NOME]</strong>. Escrevo sobre aquilo que
+        acontece entre uma coisa e outra: a memória, o tempo,
+        as pequenas ausências e aquilo que permanece sem nome.
+      </div>
+
+      <div class="aside">
+        <p>
+          Este espaço reúne poemas, aforismos e fragmentos
+          escritos em diferentes momentos.
+        </p>
+        <blockquote>
+          “La poesía comienza donde la explicación ya no alcanza.”
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="container">
+    <div class="eyebrow">04 / Contacto</div>
+    <h2>Si quieres<br>conversar, escribe.</h2>
+    <p>
+      Para correspondência, leituras, convites ou simplesmente
+      uma conversa sobre palavras.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:seuemail@example.com">seuemail@example.com</a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>PALAVRAS</span>
+    <span>© 2026 · Todos los derechos reservados</span>
+  </div>
+</footer>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-inner">
+    <div class="modal-top">
+      <span class="modal-label">Lectura</span>
+      <button class="close" id="close" aria-label="Cerrar">×</button>
+    </div>
+    <h3 id="title"></h3>
+    <div class="author" id="author"></div>
+    <div class="full" id="text"></div>
+  </div>
+</div>
+
+<script>
+const poems = {
+  p1:{
+    title:"Entre dos mañanas",
+    author:"",
+    text:`Hay una distancia
+entre lo que fuimos
+y aquello que todavía
+no sabemos ser.
+
+Camino por ella
+sin prisa,
+
+como quien atraviesa
+un puente
+sin preguntar
+dónde termina.
+
+Tal vez crecer
+sea eso:
+
+aprender a habitar
+el intervalo.`
+  },
+
+  p2:{
+    title:"El silencio",
+    author:"",
+    text:`El silencio não diz.
+
+Permanece.
+
+Sobre mí a mesa,
+entre dos personas,
+después de la última palabra.
+
+A veces pesa.
+A veces acoge.
+
+E às vezes,
+cuando ya se ha dicho todo,
+es lo único
+que todavía sabe
+quedarse.`
+  },
+
+  p3:{
+    title:"Pequeña despedida",
+    author:"",
+    text:`No hubo adiós.
+
+Solo la tarde
+cerrando despacio
+las puertas de la casa.
+
+Y nosotros,
+sin saber si nos íbamos
+o si simplemente
+nos volvíamos diferentes.`
+  },
+
+  p4:{
+    title:"Después",
+    author:"",
+    text:`Algunas cosas
+solo comienzan
+cuando pensamos
+que terminaron.
+
+Tal vez el final
+sea apenas
+la manera que la vida
+encuentra
+de cambiar de nombre.`
+  }
+};
+
+const nav=document.getElementById("nav");
+const menu=document.getElementById("menu");
+const links=document.getElementById("links");
+const modal=document.getElementById("modal");
+const close=document.getElementById("close");
+const title=document.getElementById("title");
+const author=document.getElementById("author");
+const text=document.getElementById("text");
+
+window.addEventListener("scroll",()=>{
+  nav.classList.toggle("scrolled",window.scrollY>30);
+});
+
+menu.addEventListener("click",()=>{
+  links.classList.toggle("open");
+});
+
+links.querySelectorAll("a").forEach(a=>{
+  a.addEventListener("click",()=>links.classList.remove("open"));
+});
+
+function openPoem(id){
+  const poem=poems[id];
+  if(!poem)return;
+  title.textContent=poem.title;
+  author.textContent=poem.author;
+  author.style.display=poem.author?"block":"none";
+  text.textContent=poem.text;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+  close.focus();
+}
+
+function closePoem(){
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+}
+
+document.querySelectorAll("[data-poem]").forEach(el=>{
+  el.addEventListener("click",()=>openPoem(el.dataset.poem));
+});
+
+close.addEventListener("click",closePoem);
+
+modal.addEventListener("click",e=>{
+  if(e.target===modal)closePoem();
+});
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape" && modal.classList.contains("open"))closePoem();
+});
+</script>
+
+</body>
+</html>

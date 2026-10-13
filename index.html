@@ -190,9 +190,16 @@
       justify-content:space-between;
     }
     .aph p{
-      margin:0;
+      margin:42px 0 18px;
       font:400 clamp(1.6rem,2.5vw,2.25rem)/1.15 var(--serif);
     }
+    .aph-author{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.7rem;
+      letter-spacing:.06em;
+    }
+    .aph .read{margin-top:28px}
     .aph small{
       color:var(--accent);
       font-size:.67rem;
@@ -412,44 +419,68 @@ que terminaron.</div>
 
     <div class="aphorisms">
       <article class="aph">
-        <p>“Somos lo que hacemos con lo que hicieron de nosotros.”</p>
-        <small>Aforismo · 01</small>
-                <div class="aph-author">— Jean Paul Sartre</div>
+        <div>
+          <div class="meta"><span>Frase 01</span><span>Aforismos</span></div>
+          <p>“Somos lo que hacemos con lo que hicieron de nosotros.”</p>
+          <div class="aph-author">— Jean Paul Sartre</div>
+        </div>
+        <button class="read" data-phrase="f1">Leer frase →</button>
       </article>
       <article class="aph">
-        <p>“Ser uno mismo en un mundo que constantemente intenta transformarte en otra persona es tu mayor conquista.”</p>
-        <small>Aforismo · 02</small>
-                        <div class="aph-author">—Ralf Waldo Emerson</div>
-
+        <div>
+          <div class="meta"><span>Frase 02</span><span>Aforismos</span></div>
+          <p>“Ser uno mismo en un mundo que constantemente intenta transformarte en otra persona es tu mayor conquista.”</p>
+          <div class="aph-author">— Ralph Waldo Emerson</div>
+        </div>
+        <button class="read" data-phrase="f2">Leer frase →</button>
       </article>
       <article class="aph">
-        <p>“Si pesa llevar algo en las manos, ¿cuánto más pesará fingir ser quien uno no es? ”</p>
-        <small>Aforismo · 03</small>
-         <div class="aph-author">—Sonia I. R. Alva (SIRA)</div>
-
+        <div>
+          <div class="meta"><span>Frase 03</span><span>Aforismos</span></div>
+          <p>“Si pesa llevar algo en las manos, ¿cuánto más pesará fingir ser quien uno no es?”</p>
+          <div class="aph-author">— Sonia I. R. Alva (SIRA)</div>
+        </div>
+        <button class="read" data-phrase="f3">Leer frase →</button>
       </article>
       <article class="aph">
-        <p>“La cueva que temes entrar guarda el tesoro que buscas.”</p>
-        <small>Aforismo · 04</small>
-        <div class="aph-author">—Joseph Campbell</div>
+        <div>
+          <div class="meta"><span>Frase 04</span><span>Aforismos</span></div>
+          <p>“La cueva que temes entrar guarda el tesoro que buscas.”</p>
+          <div class="aph-author">— Joseph Campbell</div>
+        </div>
+        <button class="read" data-phrase="f4">Leer frase →</button>
       </article>
       <article class="aph">
-        <p>“Las cosas bellas no piden atención.”</p>
-        <small>Aforismo · 05</small>
+        <div>
+          <div class="meta"><span>Frase 05</span><span>Aforismos</span></div>
+          <p>“Las cosas bellas no piden atención.”</p>
+          
+        </div>
+        <button class="read" data-phrase="f5">Leer frase →</button>
       </article>
       <article class="aph">
-        <p>“Hay que ser responsable de construir tu propio bienestar.”</p>
-        <small>Aforismo · 06</small>
+        <div>
+          <div class="meta"><span>Frase 06</span><span>Aforismos</span></div>
+          <p>“Hay que ser responsable de construir tu propio bienestar.”</p>
+          
+        </div>
+        <button class="read" data-phrase="f6">Leer frase →</button>
       </article>
       <article class="aph">
-        <p>“¿Quieres olvidarte de alguien? Acuérdate de ti más veces.”</p>
-        <small>Aforismo · 07</small>
-        <div class="aph-author">—Manoel Clemente</div>
+        <div>
+          <div class="meta"><span>Frase 07</span><span>Aforismos</span></div>
+          <p>“¿Quieres olvidarte de alguien? Acuérdate de ti más veces.”</p>
+          <div class="aph-author">— Manoel Clemente</div>
+        </div>
+        <button class="read" data-phrase="f7">Leer frase →</button>
       </article>
-       <article class="aph">
-        <p>“Usemos cada no que la vida nos da como un mapa para encontar el sí.”</p>
-        <small>Aforismo · 08</small>
-         <div class="aph-author">—Marcos Lacerda</div>
+      <article class="aph">
+        <div>
+          <div class="meta"><span>Frase 08</span><span>Aforismos</span></div>
+          <p>“Usemos cada no que la vida nos da como un mapa para encontrar el sí.”</p>
+          <div class="aph-author">— Marcos Lacerda</div>
+        </div>
+        <button class="read" data-phrase="f8">Leer frase →</button>
       </article>
     </div>
   </div>
@@ -667,6 +698,49 @@ de cambiar de nombre.`
   }
 };
 
+const phrases = {
+  f1:{
+    title:"Frase 01",
+    author:"Jean Paul Sartre",
+    text:"“Somos lo que hacemos con lo que hicieron de nosotros.”"
+  },
+  f2:{
+    title:"Frase 02",
+    author:"Ralph Waldo Emerson",
+    text:"“Ser uno mismo en un mundo que constantemente intenta transformarte en otra persona es tu mayor conquista.”"
+  },
+  f3:{
+    title:"Frase 03",
+    author:"Sonia I. R. Alva (SIRA)",
+    text:"“Si pesa llevar algo en las manos, ¿cuánto más pesará fingir ser quien uno no es?”"
+  },
+  f4:{
+    title:"Frase 04",
+    author:"Joseph Campbell",
+    text:"“La cueva que temes entrar guarda el tesoro que buscas.”"
+  },
+  f5:{
+    title:"Frase 05",
+    author:"",
+    text:"“Las cosas bellas no piden atención.”"
+  },
+  f6:{
+    title:"Frase 06",
+    author:"",
+    text:"“Hay que ser responsable de construir tu propio bienestar.”"
+  },
+  f7:{
+    title:"Frase 07",
+    author:"Manoel Clemente",
+    text:"“¿Quieres olvidarte de alguien? Acuérdate de ti más veces.”"
+  },
+  f8:{
+    title:"Frase 08",
+    author:"Marcos Lacerda",
+    text:"“Usemos cada no que la vida nos da como un mapa para encontrar el sí.”"
+  }
+};
+
 const nav=document.getElementById("nav");
 const menu=document.getElementById("menu");
 const links=document.getElementById("links");
@@ -707,8 +781,25 @@ function closePoem(){
   document.body.style.overflow="";
 }
 
+function openPhrase(id){
+  const phrase=phrases[id];
+  if(!phrase)return;
+  title.textContent=phrase.title;
+  author.textContent=phrase.author;
+  author.style.display=phrase.author?"block":"none";
+  text.textContent=phrase.text;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+  close.focus();
+}
+
 document.querySelectorAll("[data-poem]").forEach(el=>{
   el.addEventListener("click",()=>openPoem(el.dataset.poem));
+});
+
+document.querySelectorAll("[data-phrase]").forEach(el=>{
+  el.addEventListener("click",()=>openPhrase(el.dataset.phrase));
 });
 
 close.addEventListener("click",closePoem);

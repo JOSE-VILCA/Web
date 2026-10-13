@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Poesías y aforismos — palabras para aquello que permanece.">
-  <title>Palabras — Poesías y Aforismos</title>
+  <title>Palabras — Poesías, Aforismos y Reflexiones</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -424,7 +424,6 @@ que terminaron.</div>
           <p>“Somos lo que hacemos con lo que hicieron de nosotros.”</p>
           <div class="aph-author">— Jean Paul Sartre</div>
         </div>
-        <button class="read" data-phrase="f1">Leer frase →</button>
       </article>
       <article class="aph">
         <div>
@@ -432,7 +431,6 @@ que terminaron.</div>
           <p>“Ser uno mismo en un mundo que constantemente intenta transformarte en otra persona es tu mayor conquista.”</p>
           <div class="aph-author">— Ralph Waldo Emerson</div>
         </div>
-        <button class="read" data-phrase="f2">Leer frase →</button>
       </article>
       <article class="aph">
         <div>
@@ -440,7 +438,6 @@ que terminaron.</div>
           <p>“Si pesa llevar algo en las manos, ¿cuánto más pesará fingir ser quien uno no es?”</p>
           <div class="aph-author">— Sonia I. R. Alva (SIRA)</div>
         </div>
-        <button class="read" data-phrase="f3">Leer frase →</button>
       </article>
       <article class="aph">
         <div>
@@ -448,7 +445,6 @@ que terminaron.</div>
           <p>“La cueva que temes entrar guarda el tesoro que buscas.”</p>
           <div class="aph-author">— Joseph Campbell</div>
         </div>
-        <button class="read" data-phrase="f4">Leer frase →</button>
       </article>
       <article class="aph">
         <div>
@@ -456,7 +452,6 @@ que terminaron.</div>
           <p>“Las cosas bellas no piden atención.”</p>
           
         </div>
-        <button class="read" data-phrase="f5">Leer frase →</button>
       </article>
       <article class="aph">
         <div>
@@ -464,7 +459,6 @@ que terminaron.</div>
           <p>“Hay que ser responsable de construir tu propio bienestar.”</p>
           
         </div>
-        <button class="read" data-phrase="f6">Leer frase →</button>
       </article>
       <article class="aph">
         <div>
@@ -472,7 +466,6 @@ que terminaron.</div>
           <p>“¿Quieres olvidarte de alguien? Acuérdate de ti más veces.”</p>
           <div class="aph-author">— Manoel Clemente</div>
         </div>
-        <button class="read" data-phrase="f7">Leer frase →</button>
       </article>
       <article class="aph">
         <div>
@@ -480,7 +473,6 @@ que terminaron.</div>
           <p>“Usemos cada no que la vida nos da como un mapa para encontrar el sí.”</p>
           <div class="aph-author">— Marcos Lacerda</div>
         </div>
-        <button class="read" data-phrase="f8">Leer frase →</button>
       </article>
     </div>
   </div>
@@ -498,18 +490,21 @@ que terminaron.</div>
         <span class="reflection-number">Reflexión · 01</span>
         <p>A veces, avanzar no consiste en llegar más lejos, sino en dejar de huir de aquello que necesitamos comprender.</p>
         <small>Sobre el camino interior</small>
+              <button class="read" data-reflection="r1">Leer reflexión →</button>
       </article>
 
       <article class="reflection">
         <span class="reflection-number">Reflexión · 02</span>
         <p>El tiempo no siempre cura; a veces, simplemente nos enseña a mirar la herida sin convertirla en nuestro destino.</p>
         <small>Sobre el tiempo y la memoria</small>
+              <button class="read" data-reflection="r2">Leer reflexión →</button>
       </article>
 
       <article class="reflection">
         <span class="reflection-number">Reflexión · 03</span>
         <p>Ser fiel a uno mismo también significa aceptar que estamos cambiando y que no tenemos que seguir siendo quienes fuimos.</p>
         <small>Sobre la identidad</small>
+              <button class="read" data-reflection="r3">Leer reflexión →</button>
       </article>
 
       <article class="reflection">
@@ -521,6 +516,7 @@ Me di cuenta, a pesar de todo, que en medio del invierno había dentro de mí un
 Porque no importa lo duro que el mundo empuje en mi contra, dentro de mí hay algo mejor empujando de vuelta.” </p>
        <div class="aph-author">— Albert Camus</div>
         <small>Sobre la aceptación</small>
+              <button class="read" data-reflection="r4">Leer reflexión →</button>
       </article>
     </div>
   </div>
@@ -698,46 +694,38 @@ de cambiar de nombre.`
   }
 };
 
-const phrases = {
-  f1:{
-    title:"Frase 01",
-    author:"Jean Paul Sartre",
-    text:"“Somos lo que hacemos con lo que hicieron de nosotros.”"
-  },
-  f2:{
-    title:"Frase 02",
-    author:"Ralph Waldo Emerson",
-    text:"“Ser uno mismo en un mundo que constantemente intenta transformarte en otra persona es tu mayor conquista.”"
-  },
-  f3:{
-    title:"Frase 03",
-    author:"Sonia I. R. Alva (SIRA)",
-    text:"“Si pesa llevar algo en las manos, ¿cuánto más pesará fingir ser quien uno no es?”"
-  },
-  f4:{
-    title:"Frase 04",
-    author:"Joseph Campbell",
-    text:"“La cueva que temes entrar guarda el tesoro que buscas.”"
-  },
-  f5:{
-    title:"Frase 05",
+const reflections = {
+  r1:{
+    title:"Reflexión · 01",
     author:"",
-    text:"“Las cosas bellas no piden atención.”"
+    text:`A veces, avanzar no consiste en llegar más lejos, sino en dejar de huir de aquello que necesitamos comprender.
+
+Sobre el camino interior`
   },
-  f6:{
-    title:"Frase 06",
+  r2:{
+    title:"Reflexión · 02",
     author:"",
-    text:"“Hay que ser responsable de construir tu propio bienestar.”"
+    text:`El tiempo no siempre cura; a veces, simplemente nos enseña a mirar la herida sin convertirla en nuestro destino.
+
+Sobre el tiempo y la memoria`
   },
-  f7:{
-    title:"Frase 07",
-    author:"Manoel Clemente",
-    text:"“¿Quieres olvidarte de alguien? Acuérdate de ti más veces.”"
+  r3:{
+    title:"Reflexión · 03",
+    author:"",
+    text:`Ser fiel a uno mismo también significa aceptar que estamos cambiando y que no tenemos que seguir siendo quienes fuimos.
+
+Sobre la identidad`
   },
-  f8:{
-    title:"Frase 08",
-    author:"Marcos Lacerda",
-    text:"“Usemos cada no que la vida nos da como un mapa para encontrar el sí.”"
+  r4:{
+    title:"Reflexión · 04",
+    author:"Albert Camus",
+    text:`En el medio del odio me pareció que había dentro de mí un amor invencible.
+El medio de las lágrimas me pareció que había dentro de mí una sonrisa invencible.
+En medio del caos me pareció que había dentro de mí una calma invencible.
+Me di cuenta, a pesar de todo, que en medio del invierno había dentro de mí un verano invencible. Y eso me hace feliz.
+Porque no importa lo duro que el mundo empuje en mi contra, dentro de mí hay algo mejor empujando de vuelta.
+
+Sobre la aceptación`
   }
 };
 
@@ -781,13 +769,13 @@ function closePoem(){
   document.body.style.overflow="";
 }
 
-function openPhrase(id){
-  const phrase=phrases[id];
-  if(!phrase)return;
-  title.textContent=phrase.title;
-  author.textContent=phrase.author;
-  author.style.display=phrase.author?"block":"none";
-  text.textContent=phrase.text;
+function openReflection(id){
+  const reflection=reflections[id];
+  if(!reflection)return;
+  title.textContent=reflection.title;
+  author.textContent=reflection.author;
+  author.style.display=reflection.author?"block":"none";
+  text.textContent=reflection.text;
   modal.classList.add("open");
   modal.setAttribute("aria-hidden","false");
   document.body.style.overflow="hidden";
@@ -798,8 +786,8 @@ document.querySelectorAll("[data-poem]").forEach(el=>{
   el.addEventListener("click",()=>openPoem(el.dataset.poem));
 });
 
-document.querySelectorAll("[data-phrase]").forEach(el=>{
-  el.addEventListener("click",()=>openPhrase(el.dataset.phrase));
+document.querySelectorAll("[data-reflection]").forEach(el=>{
+  el.addEventListener("click",()=>openReflection(el.dataset.reflection));
 });
 
 close.addEventListener("click",closePoem);

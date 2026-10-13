@@ -200,6 +200,40 @@
       text-transform:uppercase;
     }
 
+    /* REFLEXIONES */
+    .reflections{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1px;
+      background:var(--line);
+      border:1px solid var(--line);
+    }
+    .reflection{
+      min-height:260px;
+      padding:38px;
+      background:var(--bg);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      transition:background .3s;
+    }
+    .reflection:hover{background:var(--bg2)}
+    .reflection .reflection-number{
+      color:var(--accent);
+      font-size:.68rem;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+    }
+    .reflection p{
+      margin:32px 0;
+      font:400 clamp(1.7rem,3vw,2.5rem)/1.2 var(--serif);
+    }
+    .reflection small{
+      color:var(--muted);
+      font-size:.7rem;
+      letter-spacing:.08em;
+    }
+
     /* SOBRE */
     .about{
       display:grid;
@@ -266,8 +300,9 @@
       .menu{display:block}
       .heading{display:block;margin-bottom:40px}
       .number{margin-bottom:18px}
-      .grid,.aphorisms,.about{grid-template-columns:1fr}
+      .grid,.aphorisms,.reflections,.about{grid-template-columns:1fr}
       .card{min-height:320px;padding:28px}
+      .reflection{min-height:220px;padding:28px}
       .aph{min-height:220px}
       .about{gap:45px}
       .footer-inner{flex-direction:column}
@@ -284,6 +319,7 @@
     <nav class="links" id="links">
       <a href="#poesias">Poesías</a>
       <a href="#aforismos">Aforismos</a>
+      <a href="#reflexiones">Reflexiones</a>
       <a href="#sobre">Sobre mí</a>
       <a href="#contato">Contacto</a>
     </nav>
@@ -419,10 +455,45 @@ que terminaron.</div>
   </div>
 </section>
 
+<section id="reflexiones">
+  <div class="container">
+    <div class="heading">
+      <div class="number">03 / Reflexiones</div>
+      <h2>Mirar hacia dentro<br>para comprender.</h2>
+    </div>
+
+    <div class="reflections">
+      <article class="reflection">
+        <span class="reflection-number">Reflexión · 01</span>
+        <p>A veces, avanzar no consiste en llegar más lejos, sino en dejar de huir de aquello que necesitamos comprender.</p>
+        <small>Sobre el camino interior</small>
+      </article>
+
+      <article class="reflection">
+        <span class="reflection-number">Reflexión · 02</span>
+        <p>El tiempo no siempre cura; a veces, simplemente nos enseña a mirar la herida sin convertirla en nuestro destino.</p>
+        <small>Sobre el tiempo y la memoria</small>
+      </article>
+
+      <article class="reflection">
+        <span class="reflection-number">Reflexión · 03</span>
+        <p>Ser fiel a uno mismo también significa aceptar que estamos cambiando y que no tenemos que seguir siendo quienes fuimos.</p>
+        <small>Sobre la identidad</small>
+      </article>
+
+      <article class="reflection">
+        <span class="reflection-number">Reflexión · 04</span>
+        <p>Quizá la paz comience cuando dejamos de exigirle al pasado una explicación y al futuro una garantía.</p>
+        <small>Sobre la aceptación</small>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section id="sobre">
   <div class="container">
     <div class="heading">
-      <div class="number">03 / Sobre mí</div>
+      <div class="number">04 / Sobre mí</div>
       <h2>Escribir es<br>prestar atención.</h2>
     </div>
 
@@ -448,7 +519,7 @@ que terminaron.</div>
 
 <section class="contact" id="contato">
   <div class="container">
-    <div class="eyebrow">04 / Contacto</div>
+    <div class="eyebrow">05 / Contacto</div>
     <h2>Si quieres<br>conversar, escribe.</h2>
     <p>
       Para correspondência, leituras, convites ou simplesmente
